@@ -1,13 +1,19 @@
+import client from '../client.js';
+
+
 /** @returns the employee created according to the provided details */
-export async function createEmployee({ name, birthday, salary }) {
-  // TODO
+export const createEmployee = async ({ name, birthday, salary }) => {
+  const sql = `
+    INSERT INTO employees (name, birthday, salary)
+    VALUES ()
+  `
 }
 
 // === Part 2 ===
 
 /** @returns all employees */
-export async function getEmployees() {
-  // TODO
+export const getEmployees = async () => {
+  `SELECT * FROM employees;`
 }
 
 /**
