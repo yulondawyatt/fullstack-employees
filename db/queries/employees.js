@@ -2,18 +2,28 @@ import client from '../client.js';
 
 
 /** @returns the employee created according to the provided details */
-export const createEmployee = async ({ name, birthday, salary }) => {
+export const createEmployee = async (name, birthday, salary) => {
   const sql = `
     INSERT INTO employees (name, birthday, salary)
-    VALUES ()
-  `
+    VALUES ($1, $2, $3)
+    RETURNING *;
+  `;
+
+  const {rows: [ createEmployee ] } = await client.query(sql, [name, birthday, salary]);
+  return createEmployee;
 }
 
 // === Part 2 ===
 
 /** @returns all employees */
 export const getEmployees = async () => {
-  `SELECT * FROM employees;`
+  const sql = `
+    SELECT * from employees;
+    
+  `;
+
+  const { rows: listOfEmployees } = await client.query(sql);
+  return listOfEmployees;
 }
 
 /**

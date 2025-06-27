@@ -11,6 +11,7 @@ You can test your work as you go along with `npm run test:database`.
 <details>
 <summary>See DBML</summary>
 
+
 ```dbml
 table employees {
   id serial [pk]
